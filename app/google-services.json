@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "4258256087",
+    "project_id": "apiandroidapp-c2a71",
+    "storage_bucket": "apiandroidapp-c2a71.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4258256087:android:bef14ed443e51b3b2b0c92",
+        "android_client_info": {
+          "package_name": "com.gritacademy.apiandroidapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYpjMlhNOvGbaotC945JBuVg1pH80QXcg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
