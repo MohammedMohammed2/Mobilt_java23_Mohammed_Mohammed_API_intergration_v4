@@ -37,6 +37,9 @@ android {
 }
 
 dependencies {
+    implementation (libs.glide)
+    annotationProcessor (libs.compiler)
+    implementation(libs.coil.compose)
     implementation(platform(libs.firebase.bom))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

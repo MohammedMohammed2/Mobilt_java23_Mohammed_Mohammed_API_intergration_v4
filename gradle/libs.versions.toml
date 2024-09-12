@@ -1,5 +1,8 @@
 [versions]
 agp = "8.5.2"
+coil = "1.1.0"
+coilCompose = "2.7.0"
+compiler = "4.11.0"
 firebaseBom = "33.2.0"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
@@ -12,14 +15,20 @@ activity = "1.9.2"
 constraintlayout = "2.1.4"
 firebaseAuthKtx = "23.0.0"
 firebaseFirestoreKtx = "25.1.0"
+picasso = "2.8"
+picassoVersion = "2.6.0-SNAPSHOT"
 retrofit = "2.9.0"
 volley = "1.2.1"
 navigationFragmentKtx = "2.8.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+coil = { module = "io.coil-kt:coil", version.ref = "coil" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
+compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "compiler" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "compiler" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -29,6 +38,8 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
 firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
+picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
+picasso-v260snapshot = { module = "com.squareup.picasso:picasso", version.ref = "picassoVersion" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 volley = { group = "com.android.volley", name = "volley", version.ref = "volley" }
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
