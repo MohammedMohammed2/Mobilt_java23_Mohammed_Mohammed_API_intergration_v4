@@ -1,59 +1,68 @@
 package com.gritacademy.apiandroidapp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.bumptech.glide.Glide
+import org.json.JSONObject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [BlankFragment2.newInstance] factory method to
- * create an instance of this fragment.
- */
-class BlankFragment2 : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class BlankFragment2 : Fragment(R.layout.fragment_blank2) {
+    lateinit var tvDesc: TextView
+    lateinit var tvTemp: TextView
+    lateinit var tvFeelsLike: TextView
+    lateinit var tvHumidity: TextView
+    lateinit var input:TextView
+    lateinit var btnsearch:Button
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+        tvDesc = view.findViewById(R.id.textView3)
+        tvTemp = view.findViewById(R.id.textView2)
+        input = view.findViewById(R.id.editTextText)
+        tvHumidity = view.findViewById(R.id.textView4)
+        btnsearch = view.findViewById(R.id.button2)
+        var weatherIcon: ImageView = view.findViewById(R.id.imageView)
+
+
+        btnsearch.setOnClickListener {
+            var rq: RequestQueue = Volley.newRequestQueue(context)
+            var url ="https://api.weatherapi.com/v1/current.json?key=0e61e15f7f7e44b797a93849241209&q=${input.text.trim()}&aqi=no"
+
+            var request: StringRequest = StringRequest(Request.Method.GET, url, { response ->
+
+                Log.i("momo", "success" + response)
+                val weatherArray: JSONObject = JSONObject(response).getJSONObject("current")
+                val temp: String = weatherArray.getString("temp_c")
+                Log.i("momo", "onCreate: " + temp + weatherArray)
+                val jsnObjMain: JSONObject = weatherArray.getJSONObject("condition")
+                val text: String = jsnObjMain.getString("text")
+                val icon: String = jsnObjMain.getString("icon")
+                val humidity: String = weatherArray.getString("humidity")
+                tvDesc.text = " weather: " + text
+                tvTemp.text = " temp: " + temp + "°c"
+                tvHumidity.text = " humidity: " + humidity + "%"
+                Glide.with(this).load("https:" + icon).into(weatherIcon)
+
+            }, {
+                Log.i("momo", "fail")
+
+            })
+            Log.i("momo", "class: ")
+
+            rq.add(request)
+            rq.cache.clear()
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_blank2, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment BlankFragment2.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            BlankFragment2().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }
