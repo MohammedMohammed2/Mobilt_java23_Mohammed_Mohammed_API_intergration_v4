@@ -47,8 +47,6 @@ class BlankFragment : Fragment(R.layout.fragment_blank) {
             tvHumidity.text = " humidity: " + humidity + "%"
             Glide.with(this).load("https:" + icon).into(weatherIcon)
 
-
-
         }, {
             Log.i("momo", "fail")
 

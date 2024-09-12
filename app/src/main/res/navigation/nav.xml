@@ -3,34 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav"
-    app:startDestination="@id/mainActivity2">
-    <activity
-        android:id="@+id/mainActivity2"
-        android:name="com.gritacademy.apiandroidapp.MainActivity2"
-        android:label="activity_main2"
-        tools:layout="@layout/activity_main2" />
+    app:startDestination="@id/blankFragment2">
     <fragment
-        android:id="@+id/blankFragment"
+        android:id="@+id/blankFragment2"
         android:name="com.gritacademy.apiandroidapp.BlankFragment"
         android:label="fragment_blank"
         tools:layout="@layout/fragment_blank" >
         <action
-            android:id="@+id/action_blankFragment_to_mainActivity2"
-            app:destination="@id/mainActivity2" />
+            android:id="@+id/action_blankFragment2_to_blankFragment22"
+            app:destination="@id/blankFragment22" />
         <action
-            android:id="@+id/action_blankFragment_to_blankFragment2"
-            app:destination="@id/blankFragment2" />
+            android:id="@+id/action_blankFragment2_to_mainActivity22"
+            app:destination="@id/mainActivity22" />
     </fragment>
     <fragment
-        android:id="@+id/blankFragment2"
+        android:id="@+id/blankFragment22"
         android:name="com.gritacademy.apiandroidapp.BlankFragment2"
         android:label="fragment_blank2"
         tools:layout="@layout/fragment_blank2" >
         <action
-            android:id="@+id/action_blankFragment2_to_mainActivity2"
-            app:destination="@id/mainActivity2" />
+            android:id="@+id/action_blankFragment22_to_blankFragment2"
+            app:destination="@id/blankFragment2" />
         <action
-            android:id="@+id/action_blankFragment2_to_blankFragment"
-            app:destination="@id/blankFragment" />
+            android:id="@+id/action_blankFragment22_to_mainActivity22"
+            app:destination="@id/mainActivity22" />
     </fragment>
+    <activity
+        android:id="@+id/mainActivity22"
+        android:name="com.gritacademy.apiandroidapp.MainActivity2"
+        android:label="activity_main2"
+        tools:layout="@layout/activity_main2" />
 </navigation>

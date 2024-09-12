@@ -9,27 +9,41 @@
 
     <Button
         android:id="@+id/searchBtn"
-        android:layout_width="185dp"
-        android:layout_height="55dp"
-        android:layout_marginEnd="112dp"
+        android:layout_width="147dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="224dp"
         android:text="SearchWeather"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.831"
         app:layout_constraintStart_toEndOf="@+id/MyLocation"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.896" />
+        app:layout_constraintVertical_bias="0.911" />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
-        android:name="com.gritacademy.apiandroidapp.BlankFragment"
-        android:layout_width="346dp"
-        android:layout_height="490dp"
-        app:layout_constraintBottom_toTopOf="@+id/searchBtn"
+    <Button
+        android:id="@+id/locationBtn"
+        android:layout_width="147dp"
+        android:layout_height="54dp"
+        android:text="MyLocation"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.886"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.258" />
+        app:layout_constraintVertical_bias="0.909" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView2"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="308dp"
+        android:layout_height="492dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.121"
+        app:navGraph="@navigation/nav"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
