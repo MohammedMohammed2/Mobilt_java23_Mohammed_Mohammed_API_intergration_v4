@@ -1,5 +1,6 @@
 package com.gritacademy.apiandroidapp
 
+import android.app.FragmentTransaction
 import android.media.Image
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentManager.BackStackEntry
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import coil.compose.AsyncImage
@@ -24,33 +27,29 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 class MainActivity2 : AppCompatActivity() {
+
+    lateinit var changeFragBtn:Button
     lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
+
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView2) as NavHostFragment
         navController = navHostFragment.navController
 
-        findViewById<Button>(R.id.searchBtn).setOnClickListener {
-            Log.i("sami", "onCreate: "+navController.currentDestination!!.toString())
+        changeFragBtn = findViewById(R.id.searchBtn)
 
-            Log.i("sami", "onCreate: "+navController.currentDestination!!.toString()+navController.currentDestination!!.id)
-            if(navController.currentDestination!!.id == R.id.blankFragment2)
-                navController.navigate(R.id.action_blankFragment2_to_blankFragment22)
-            else{
-                Toast.makeText(this, "You are already in the desired fragment", Toast.LENGTH_SHORT).show()
+        changeFragBtn.setOnClickListener {
+            if (changeFragBtn.text == "search") {
+                changeFragBtn.text = "malmö"
+                supportFragmentManager.beginTransaction().addToBackStack("1")
+                    .replace(R.id.fragmentContainerView2, BlankFragment2()).commit()
             }
-        }
-        findViewById<Button>(R.id.locationBtn).setOnClickListener {
-            Log.i("sami", "onCreate: "+navController.currentDestination!!.toString())
-
-            Log.i("sami", "onCreate: "+navController.currentDestination!!.toString()+navController.currentDestination!!.id)
-            if(navController.currentDestination!!.id == R.id.blankFragment22)
-                navController.navigate(R.id.action_blankFragment22_to_blankFragment2)
             else{
-                Toast.makeText(this, "You are already in the desired fragment", Toast.LENGTH_SHORT).show()
+                    changeFragBtn.text = "search"
+                    supportFragmentManager.beginTransaction().addToBackStack("2").replace(R.id.fragmentContainerView2,BlankFragment()).commit()
+                }
             }
         }
     }
-}

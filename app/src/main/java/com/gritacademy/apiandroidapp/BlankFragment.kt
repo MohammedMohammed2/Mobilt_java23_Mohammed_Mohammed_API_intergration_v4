@@ -1,5 +1,7 @@
 package com.gritacademy.apiandroidapp
 
+import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,11 +10,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import org.json.JSONObject
 
 class BlankFragment : Fragment(R.layout.fragment_blank) {
@@ -20,6 +25,7 @@ class BlankFragment : Fragment(R.layout.fragment_blank) {
     lateinit var tvTemp: TextView
     lateinit var tvFeelsLike: TextView
     lateinit var tvHumidity: TextView
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

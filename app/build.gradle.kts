@@ -37,6 +37,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.play.services.location)
     implementation (libs.glide)
     annotationProcessor (libs.compiler)
     implementation(libs.coil.compose)

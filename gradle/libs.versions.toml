@@ -17,6 +17,7 @@ firebaseAuthKtx = "23.0.0"
 firebaseFirestoreKtx = "25.1.0"
 picasso = "2.8"
 picassoVersion = "2.6.0-SNAPSHOT"
+playServicesLocation = "21.3.0"
 retrofit = "2.9.0"
 volley = "1.2.1"
 navigationFragmentKtx = "2.8.0"
@@ -40,6 +41,7 @@ firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx",
 firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
 picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
 picasso-v260snapshot = { module = "com.squareup.picasso:picasso", version.ref = "picassoVersion" }
+play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocation" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 volley = { group = "com.android.volley", name = "volley", version.ref = "volley" }
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
